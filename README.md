@@ -119,5 +119,7 @@ python md2pdf.py "AI-Driven_Litho_Demo.md" "AI-Driven_Litho_Demo.pdf"
 ## 7. References
 
 [1] Chen, G., et al. (2024). Open-Source Differentiable Lithography Imaging Framework. *SPIE Advanced Lithography + Patterning*.
+
 [2] Zheng, S., et al. (2023). LithoBench: Benchmarking AI Computational Lithography. *NeurIPS*.
+
 [3] Balandat, M., et al. (2020). BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization. *NeurIPS*.
