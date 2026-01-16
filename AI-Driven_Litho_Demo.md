@@ -24,7 +24,7 @@
 
 ### 模块一：可微分光刻仿真器 (`src/litho_sim.py`)
 
-这是闭环系统的“虚拟实验平台”。我们没有从零开始构建复杂的物理模型，而是借鉴了**TorchLitho** [1] 和 **LithoBench** [2] 的思想，实现了一个简化的、但核心功能完备的可微分仿真器。
+这是闭环系统的“虚拟实验平台”。本项目借鉴**TorchLitho** [1] 和 **LithoBench** [2] 的思想，实现了一个简化但核心功能完备的可微分仿真器。
 
 *   **技术实现**: 使用PyTorch构建。它模拟一个简化的光学模型（例如，高斯模糊模拟衍射）和光刻胶模型（Sigmoid函数模拟显影阈值）。
 *   **创新点 (可微分)**: 整个仿真过程是完全可微分的。这意味着我们可以计算出**输出CD对输入参数（如曝光剂量Dose、离焦Focus）的梯度**。虽然本Demo主要使用贝叶斯优化（一种黑盒优化方法），但可微分为未来采用更高效的基于梯度的优化算法（如Adam）提供了可能。
@@ -112,5 +112,7 @@ ai_litho_demo/
 ## 6. 参考文献
 
 [1] Chen, G., et al. (2024). Open-Source Differentiable Lithography Imaging Framework. *SPIE Advanced Lithography + Patterning*.
+
 [2] Zheng, S., et al. (2023). LithoBench: Benchmarking AI Computational Lithography. *NeurIPS*.
+
 [3] Balandat, M., et al. (2020). BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization. *NeurIPS*.
