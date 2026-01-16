@@ -1,0 +1,47 @@
+flowchart TB
+    subgraph User["👤 User Interface"]
+        Goal["Define Optimization Goal<br/>(e.g., Minimize CD Error)"]
+        Review["Review Results &<br/>Provide Real Data"]
+    end
+    
+    subgraph MasterAgent["🤖 Master Agent (LLM-based)"]
+        TaskPlan["Task Planning &<br/>Coordination"]
+        Report["Generate Reports"]
+    end
+    
+    subgraph OptAgent["📊 Optimization Agent"]
+        GP["Gaussian Process<br/>Surrogate Model"]
+        EI["Expected Improvement<br/>Acquisition Function"]
+        Propose["Propose Next<br/>Parameters"]
+    end
+    
+    subgraph SimAgent["🔬 Simulation Agent"]
+        Optical["Optical Model<br/>(Diffraction)"]
+        Resist["Resist Model<br/>(Threshold)"]
+        Measure["CD Measurement"]
+    end
+    
+    subgraph DataAgent["💾 Data Agent"]
+        History["Historical Data<br/>Management"]
+        Calibrate["Sim-to-Real<br/>Calibration"]
+    end
+    
+    Goal --> TaskPlan
+    TaskPlan --> Propose
+    Propose --> |"Candidate Params<br/>(Dose, Focus)"| Optical
+    Optical --> Resist
+    Resist --> Measure
+    Measure --> |"Simulated CD"| GP
+    GP --> EI
+    EI --> Propose
+    
+    Measure --> |"Store Results"| History
+    Review --> |"Real Measurements"| Calibrate
+    Calibrate --> GP
+    History --> Report
+    Report --> Review
+    
+    style MasterAgent fill:#e1f5fe
+    style OptAgent fill:#fff3e0
+    style SimAgent fill:#e8f5e9
+    style DataAgent fill:#fce4ec
